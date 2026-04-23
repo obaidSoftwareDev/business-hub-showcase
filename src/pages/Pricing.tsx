@@ -6,6 +6,7 @@ import PageHero from "@/components/site/PageHero";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
 import FAQList from "@/components/site/FAQList";
+import ReportsMock from "@/components/mock/ReportsMock";
 
 const tiers = [
   {
@@ -57,6 +58,8 @@ const PricingPage = () => {
         eyebrow="Pricing"
         title="Three plans. Each shaped around how operators actually run."
         description="No seat-count gymnastics. No hidden tiers. Pricing is a function of how your business operates."
+        visualTitle="Reports · weekly summary"
+        visual={<ReportsMock />}
       />
 
       <Section index="01 ·" eyebrow="Which plan fits" title="A short orientation, before the table." variant="muted">
