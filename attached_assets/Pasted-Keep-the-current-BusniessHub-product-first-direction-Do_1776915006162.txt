@@ -1,0 +1,207 @@
+Keep the current BusniessHub product-first direction.
+Do not redesign the whole site from scratch.
+Preserve the sharp 2D minimal visual language, premium monochrome palette, and serious business-software tone.
+The website should remain visually restrained and minimal, but motion and interaction quality should feel extremely premium and high-effort.
+BusniessHub must remain the main brand, while EVORIX stays secondary as the maker only.
+All changes should make sections feel denser, more intentional, more product-real, and more alive.
+Do not add colorful startup styling, cartoon graphics, generic SaaS blobs, or overdecorated visuals.
+
+Now do a focused repair pass for screenshot areas, product mockups, and feature-visual sections.
+
+Main problem:
+The screenshot / product-visual sections feel too static and too much like plain framed images.
+They need to feel like living product views without becoming a full interactive app demo.
+
+Goal:
+Make screenshot sections feel premium, product-real, and motion-rich while still clearly reading as screenshots/mockups.
+
+Important rule:
+These should still feel like product screenshots inside polished frames, not random floating dashboard cards and not a fake live app clone.
+
+-----------------------------------
+PART 1 — REBUILD THE SCREENSHOT THEATER
+-----------------------------------
+
+Upgrade all screenshot sections so they feel like premium product windows with controlled internal motion.
+
+Each screenshot frame should feel like:
+- a high-end app/browser frame
+- slightly dimensional
+- alive inside
+- clearly tied to BusniessHub workflows
+
+Use screenshot groups for:
+- Dashboard
+- Products / stock
+- Purchases / suppliers
+- Sales / customers
+- Collections / payments
+- Reports / audit log
+
+Layout guidance:
+- use larger screenshot frames
+- reduce dead empty gaps around them
+- improve hierarchy between heading, caption, and frame
+- create stronger composition, not just “image under text”
+
+-----------------------------------
+PART 2 — ADD INTERNAL UI MOTION INSIDE SCREENSHOTS
+-----------------------------------
+
+The screenshots themselves should contain subtle animated UI details.
+
+Important:
+The motion must stay believable and product-like.
+Do not make the screenshots chaotic.
+Do not animate everything at once.
+Do not make them feel like video game HUDs.
+
+Add subtle internal motions such as:
+- blinking text caret in search bars
+- search query typing effect in one selected mockup
+- small button hover pulse / pressed state
+- metric counters ticking up slightly
+- chart line or bar growth on reveal
+- table row highlight sweep
+- active tab underline slide
+- notification badge pulse
+- dropdown open/close micro-motion
+- cursor ghost / guided pointer movement in one or two places only
+- filter chip selection animation
+- small loading shimmer on placeholder panels
+- status dot pulse for live-looking states
+
+Use these only where appropriate.
+
+Example by screenshot type:
+1. Dashboard screenshot
+   - KPI numbers count in slightly
+   - chart animates in
+   - one trend line draws
+   - one highlighted activity row fades upward
+
+2. Products screenshot
+   - search bar with blinking caret
+   - row hover highlight
+   - stock badge emphasis
+   - filter chip active animation
+
+3. Purchases screenshot
+   - timeline or status badge reveal
+   - supplier row highlight
+   - amount column emphasis
+   - action button micro-hover
+
+4. Sales / customers screenshot
+   - selected invoice or customer row
+   - amount summary count-up
+   - small underline/tab shift
+   - subtle cursor path if useful
+
+5. Reports screenshot
+   - chart build animation
+   - table reveal
+   - active date range indicator motion
+   - audit log item stagger
+
+-----------------------------------
+PART 3 — MAKE SCREENSHOTS FEEL DEEPER
+-----------------------------------
+
+Improve the fake-3D feel around screenshot sections.
+
+Use:
+- still or calm background
+- moving foreground UI frame
+- slight hover lift
+- premium shadow depth
+- layered caption cards
+- subtle parallax between frame and label
+- image mask reveals
+- screenshot stack transitions
+- slow horizontal drift in selected showcase sections
+
+Important:
+The website should still look visually 2D minimal.
+This is about depth and motion quality, not visual clutter.
+
+-----------------------------------
+PART 4 — BETTER FEATURE VISUALS
+-----------------------------------
+
+Right now some feature sections likely describe features with text only or with weak visuals.
+Fix that.
+
+For selected feature rows, build “product detail visual blocks” that look like cropped interface moments.
+
+Examples:
+- search and filter interaction
+- stock alert badge block
+- payment/collection status block
+- audit trail record block
+- report widget block
+- product table crop
+- receipt allocation crop
+
+These should be:
+- tightly framed
+- product-specific
+- animated lightly
+- visually believable
+- useful to the story of the section
+
+-----------------------------------
+PART 5 — DO NOT USE DEAD PLACEHOLDER RECTANGLES
+-----------------------------------
+
+Wherever there are large generic boxes standing in for product visuals, replace them with:
+- actual mockup compositions
+- cropped product views
+- layered UI fragments
+- structured screenshot panels
+
+No empty filler frames.
+No generic gradient rectangles.
+
+-----------------------------------
+PART 6 — SCREENSHOT SECTION RHYTHM
+-----------------------------------
+
+Improve transitions between screenshot sections.
+
+Use:
+- masked reveal into each frame
+- staggered text + frame entrance
+- horizontal shift between screenshot groups
+- occasional sticky screenshot storytelling section
+- better scroll choreography
+
+The screenshot areas should feel like premium product storytelling, not a gallery dump.
+
+-----------------------------------
+PART 7 — MOBILE
+-----------------------------------
+
+Keep screenshot sections strong on mobile:
+- readable framing
+- no overcrowding
+- motion simplified but still premium
+- internal UI motion should still feel alive
+- do not let screenshots become tiny and meaningless
+
+-----------------------------------
+FINAL RESULT
+-----------------------------------
+
+The result should feel like:
+- BusniessHub has real product depth
+- screenshots are alive
+- features feel operational and believable
+- product sections feel more premium
+- the site feels more expensive and more intentional
+
+Do not:
+- do not over-animate all screenshot details at once
+- do not make the mockups feel like a fake live app demo
+- do not use colorful charts
+- do not turn screenshots into random abstract cards
