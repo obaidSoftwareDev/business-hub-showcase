@@ -42,3 +42,9 @@ id = "vlK3szs36NlLTLpz4egE3"
 uri = "file://attached_assets/generated_images/screenshot_theater_bg.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "DZ4rFoqADDxRjS7V4fyUz"
+uri = "file://attached_assets/generated_images/final_cta_bg.png"
+type = "image"
+title = "generated_image"

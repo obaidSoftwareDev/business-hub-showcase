@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { FadeUp } from "@/components/motion/SplitWords";
 import MagneticLink from "@/components/motion/MagneticLink";
 import SectionStitch from "@/components/motion/SectionStitch";
+import finalCtaBg from "@assets/generated_images/final_cta_bg.png";
 
 interface FinalCTAProps {
   eyebrow?: string;
@@ -16,6 +17,16 @@ export const FinalCTA = ({ eyebrow = "Get started", title, primary = { label: "O
     <>
       <SectionStitch label="End of page" />
       <section className="relative bg-surface-ink text-background overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          <img
+            src={finalCtaBg}
+            alt=""
+            data-testid="img-final-cta-background"
+            className="w-full h-full object-cover opacity-45 select-none"
+            draggable={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface-ink via-surface-ink/60 to-surface-ink/40" />
+        </div>
         <div className="absolute inset-0 grid-bg opacity-[0.07]" aria-hidden />
         <div className="container-edge relative py-28 md:py-40">
           <div className="grid grid-cols-12 gap-6">
