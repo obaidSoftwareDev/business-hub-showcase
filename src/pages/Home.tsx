@@ -11,6 +11,7 @@ import CursorDepth from "@/components/motion/CursorDepth";
 import AmbientDepth from "@/components/motion/AmbientDepth";
 import AppFrame from "@/components/mock/AppFrame";
 import heroBg from "@assets/generated_images/hero_bg.png";
+import theaterBg from "@assets/generated_images/screenshot_theater_bg.png";
 import DashboardMock from "@/components/mock/DashboardMock";
 import ProductsMock from "@/components/mock/ProductsMock";
 import ReceiptsMock from "@/components/mock/ReceiptsMock";
@@ -339,7 +340,17 @@ const ScreenshotTheater = () => {
       ref={ref}
       className="relative bg-surface-ink text-background border-b border-foreground/10 overflow-hidden"
     >
-      <div className="container-edge pt-24 md:pt-32 pb-10">
+      <div className="absolute inset-0 -z-0 pointer-events-none" aria-hidden>
+        <img
+          src={theaterBg}
+          alt=""
+          data-testid="img-theater-background"
+          className="w-full h-full object-cover opacity-40 select-none"
+          draggable={false}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-surface-ink/70 via-surface-ink/50 to-surface-ink" />
+      </div>
+      <div className="relative container-edge pt-24 md:pt-32 pb-10">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-4 flex items-start gap-4">
             <span className="num-tag text-background/60">05 ·</span>
