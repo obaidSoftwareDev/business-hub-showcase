@@ -84,10 +84,10 @@
   .dark {
     --background: 0 0% 4%;
     --foreground: 40 8% 96%;
-    --surface-0: 0 0% 4%;
-    --surface-1: 0 0% 8.6%;
-    --surface-2: 0 0% 13.3%;
-    --card: 0 0% 4%;
+    --surface-0: 0 0% 6.5%;
+    --surface-1: 0 0% 9.5%;
+    --surface-2: 0 0% 14%;
+    --card: 0 0% 6.5%;
     --card-foreground: 40 8% 96%;
     --popover: 0 0% 6%;
     --popover-foreground: 40 8% 96%;
