@@ -45,6 +45,8 @@ interface PageHeroProps {
   frameCaption?: string;
   /** Tone tag rendered in the corner ribbon above the visual. */
   tone?: string;
+  /** Optional decorative background image rendered behind the hero with a soft mask. */
+  bgImage?: string;
 }
 
 /**
@@ -74,11 +76,24 @@ export const PageHero = ({
   meta,
   frameCaption,
   tone,
+  bgImage,
 }: PageHeroProps) => {
   return (
     <section className="relative pt-32 md:pt-40 pb-0 border-b border-border overflow-hidden">
       {/* Layered backdrop */}
       <AmbientDepth intensity="low" />
+      {bgImage && (
+        <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden>
+          <img
+            src={bgImage}
+            alt=""
+            data-testid="img-page-hero-background"
+            className="w-full h-full object-cover opacity-[0.16] dark:opacity-[0.20] mask-vignette select-none"
+            draggable={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
+        </div>
+      )}
       <div className="absolute inset-0 grid-bg mask-vignette opacity-50" aria-hidden />
       <div className="absolute inset-0 scan-lines opacity-70 pointer-events-none" aria-hidden />
       {/* Corner crosshairs — strict 2D scaffolding */}

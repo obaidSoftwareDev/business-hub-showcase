@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, KeyRound, Users, Database, ScrollText, BarChart3, Lock } from "lucide-react";
 import PageHero from "@/components/site/PageHero";
+import heroSecurityBg from "@assets/generated_images/hero_security.png";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
 import FAQList from "@/components/site/FAQList";
@@ -20,6 +21,7 @@ const pillars = [
 const Security = () => (
   <>
     <PageHero
+      bgImage={heroSecurityBg}
       eyebrow="Security & Trust"
       title="Trust comes from how the system is built — not from badges on a page."
       description="Our trust story is grounded in product structure, operational transparency and disciplined workflows."

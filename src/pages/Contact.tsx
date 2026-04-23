@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, MessageSquare, Calendar } from "lucide-react";
 import { toast } from "@/components/ui/sonner";
 import PageHero from "@/components/site/PageHero";
+import heroContactBg from "@assets/generated_images/hero_contact.png";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
 import FAQList from "@/components/site/FAQList";
@@ -23,6 +24,7 @@ const Contact = () => {
   return (
     <>
       <PageHero
+        bgImage={heroContactBg}
         eyebrow="Contact · start a conversation"
         title="Talk to the team behind BusniessHub."
         description="Setup, demo, fit, support, partnerships — start a conversation and we'll route you to the right person."

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { LayoutGrid, Boxes, FolderTree, Truck, ShoppingCart, Users, Layers, Wallet, Receipt, BarChart3, ScrollText, ShieldCheck, KeyRound, Database } from "lucide-react";
 
 import PageHero from "@/components/site/PageHero";
+import heroModulesBg from "@assets/generated_images/hero_modules.png";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
 import { FadeUp } from "@/components/motion/SplitWords";
@@ -126,6 +127,7 @@ const ModulesPage = () => {
   return (
     <>
       <PageHero
+        bgImage={heroModulesBg}
         eyebrow="Modules · twelve, all first-class"
         title="A full breakdown of every module that ships with BusniessHub."
         description="Each module is built to earn its place in your daily workflow."

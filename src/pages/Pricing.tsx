@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Check, Minus } from "lucide-react";
 
 import PageHero from "@/components/site/PageHero";
+import heroPricingBg from "@assets/generated_images/hero_pricing.png";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
 import FAQList from "@/components/site/FAQList";
@@ -55,6 +56,7 @@ const PricingPage = () => {
   return (
     <>
       <PageHero
+        bgImage={heroPricingBg}
         eyebrow="Pricing · operator-shaped"
         title="Three plans. Each shaped around how operators actually run."
         description="No seat-count gymnastics. No hidden tiers. Pricing is a function of how your business operates."

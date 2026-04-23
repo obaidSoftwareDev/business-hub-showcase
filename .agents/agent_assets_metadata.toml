@@ -6,3 +6,33 @@ id = "W95StcxNlT3Zqa4764ai_"
 uri = "file://attached_assets/generated_images/hero_bg.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "h2eqWq9Dmvna1G6VQL9wG"
+uri = "file://attached_assets/generated_images/hero_product.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "MRvZdoL7-mwo-qJylaR6J"
+uri = "file://attached_assets/generated_images/hero_modules.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "8XNRH1rRN4d9s9J47uBL4"
+uri = "file://attached_assets/generated_images/hero_pricing.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "RyXi-FwQxsSuJEVbOieiH"
+uri = "file://attached_assets/generated_images/hero_security.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "WKOI-coNq4yFJkIqjzsVY"
+uri = "file://attached_assets/generated_images/hero_contact.png"
+type = "image"
+title = "generated_image"

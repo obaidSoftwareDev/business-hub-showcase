@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Boxes, FolderTree, Truck, ShoppingCart, Layers, BarChart3, ScrollText, Users, LayoutGrid, Wallet, ShieldCheck } from "lucide-react";
 
 import PageHero from "@/components/site/PageHero";
+import heroProductBg from "@assets/generated_images/hero_product.png";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
 import FAQList from "@/components/site/FAQList";
@@ -71,6 +72,7 @@ const Product = () => {
   return (
     <>
       <PageHero
+        bgImage={heroProductBg}
         eyebrow="Product · the operating platform"
         title="A serious operations platform — covering the entire daily loop."
         description="From product master to reporting and audit, BusniessHub is the full operating surface your business runs on."
