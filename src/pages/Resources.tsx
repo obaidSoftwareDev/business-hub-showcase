@@ -6,6 +6,7 @@ import PageHero from "@/components/site/PageHero";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
 import FAQList from "@/components/site/FAQList";
+import CategoriesMock from "@/components/mock/CategoriesMock";
 
 const filters = ["All", "Getting started", "Walkthroughs", "Help articles", "Workflows", "Release notes"];
 
@@ -32,6 +33,8 @@ const Resources = () => {
         eyebrow="Resources · operator hub"
         title="Everything to learn, run and master BusniessHub."
         description="Guides, walkthroughs and workflow checklists — built for operators, not engineers."
+        visualTitle="Categories · how to organize"
+        visual={<CategoriesMock />}
       />
 
       <Section index="01 ·" eyebrow="Hub" title="A search-first, filter-led resource library.">

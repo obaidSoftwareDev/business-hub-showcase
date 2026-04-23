@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import PageHero from "@/components/site/PageHero";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
+import StockLedgerMock from "@/components/mock/StockLedgerMock";
 
 const releases = [
   { v: "v3.4", date: "23 Apr 2026", title: "Reports refresh — period closes that close.", tags: ["Reports", "Performance"], notes: ["New period close report aggregates sales, receipts and stock movement in one view.", "Aggregations rebuilt — 4× faster on large workspaces.", "Improved CSV exports with stable column ordering."] },
@@ -17,6 +18,8 @@ const Changelog = () => (
       eyebrow="Changelog · product evolution"
       title="Every release that has shaped the operating loop."
       description="A grounded log of what changed and why — written for operators who depend on the platform."
+      visualTitle="Stock ledger · v3.0+"
+      visual={<StockLedgerMock />}
     />
 
     <Section index="01 ·" eyebrow="Latest" title="The newest release, in detail.">

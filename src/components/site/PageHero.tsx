@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import type { ReactNode } from "react";
 import { FadeUp, SplitWords } from "@/components/motion/SplitWords";
+import { Parallax } from "@/components/motion/Parallax";
+import AppFrame from "@/components/mock/AppFrame";
+import AmbientDepth from "@/components/motion/AmbientDepth";
 
 interface PageHeroProps {
   eyebrow: string;
@@ -8,13 +12,31 @@ interface PageHeroProps {
   description: string;
   primaryCta?: { label: string; to: string };
   secondaryCta?: { label: string; to: string };
+  /** Optional product visual rendered inside an AppFrame below the hero. */
+  visual?: ReactNode;
+  /** Optional small floating side panel for layered depth. */
+  sidePanel?: ReactNode;
+  /** Title for the AppFrame chrome. */
+  visualTitle?: string;
+  visualUrl?: string;
 }
 
-/** Editorial reusable hero used by inner pages. */
-export const PageHero = ({ eyebrow, title, description, primaryCta, secondaryCta }: PageHeroProps) => {
+/** Editorial reusable hero used by inner pages, with optional layered product visual. */
+export const PageHero = ({
+  eyebrow,
+  title,
+  description,
+  primaryCta,
+  secondaryCta,
+  visual,
+  sidePanel,
+  visualTitle,
+  visualUrl,
+}: PageHeroProps) => {
   return (
     <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 border-b border-border overflow-hidden">
-      <div className="absolute inset-0 grid-bg mask-vignette opacity-60" aria-hidden />
+      <AmbientDepth intensity="low" />
+      <div className="absolute inset-0 grid-bg mask-vignette opacity-50" aria-hidden />
       <div className="container-edge relative">
         <div className="grid grid-cols-12 gap-6 items-end">
           <div className="col-span-12 lg:col-span-9">
@@ -54,6 +76,25 @@ export const PageHero = ({ eyebrow, title, description, primaryCta, secondaryCta
             </FadeUp>
           </div>
         </div>
+
+        {visual && (
+          <div className="relative mt-16 md:mt-20">
+            <Parallax amount={20}>
+              <div className="relative">
+                <AppFrame title={visualTitle} url={visualUrl} className="shadow-pop">
+                  {visual}
+                </AppFrame>
+                {sidePanel && (
+                  <div className="hidden md:block absolute -right-4 -bottom-10 w-72 lg:w-80">
+                    <AppFrame title="Quick view" url="quick.busnieshub.com" className="shadow-pop">
+                      {sidePanel}
+                    </AppFrame>
+                  </div>
+                )}
+              </div>
+            </Parallax>
+          </div>
+        )}
       </div>
     </section>
   );

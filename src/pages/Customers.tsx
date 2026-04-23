@@ -27,6 +27,8 @@ const Customers = () => (
       title="Operators who need the books to match the floor."
       description="Retailers, wholesalers and operator-led teams choose BusniessHub when discipline matters more than dashboards."
       primaryCta={{ label: "Talk to the team", to: "/contact" }}
+      visualTitle="Receipts · allocations"
+      visual={<ReceiptsMock />}
     />
 
     <Section index="01 ·" eyebrow="Who uses BusniessHub" title="Three operating shapes. One platform.">

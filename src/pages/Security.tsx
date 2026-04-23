@@ -24,6 +24,8 @@ const Security = () => (
       title="Trust comes from how the system is built — not from badges on a page."
       description="Our trust story is grounded in product structure, operational transparency and disciplined workflows."
       primaryCta={{ label: "Talk to our team", to: "/contact" }}
+      visualTitle="Audit log · streaming"
+      visual={<AuditMock />}
     />
 
     <Section index="01 ·" eyebrow="Pillars" title="Six pillars that hold the platform together.">
