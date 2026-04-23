@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { LayoutGrid, Boxes, ShoppingCart, Users, Receipt, BarChart3, ScrollText, Wallet, FolderTree, Truck, Layers, Settings } from "lucide-react";
 
 const navItems = [
@@ -16,14 +17,14 @@ const navItems = [
 ];
 
 const statRows = [
-  { label: "Sales today", value: "₹ 1,84,210", delta: "+12.4%", trend: [12, 18, 14, 22, 19, 28, 31, 27, 34, 41, 38, 46] },
-  { label: "Receipts", value: "₹ 92,430", delta: "+4.1%", trend: [22, 18, 24, 21, 28, 26, 31, 29, 33, 30, 36, 38] },
-  { label: "Stock value", value: "₹ 18.6L", delta: "−0.6%", trend: [40, 38, 41, 39, 36, 38, 35, 33, 34, 32, 30, 31] },
-  { label: "Open POs", value: "23", delta: "+3", trend: [3, 5, 4, 6, 7, 6, 8, 9, 8, 10, 11, 9] },
+  { label: "Sales today", target: 184210, prefix: "₹ ", delta: "+12.4%", trend: [12, 18, 14, 22, 19, 28, 31, 27, 34, 41, 38, 46] },
+  { label: "Receipts", target: 92430, prefix: "₹ ", delta: "+4.1%", trend: [22, 18, 24, 21, 28, 26, 31, 29, 33, 30, 36, 38] },
+  { label: "Stock value", target: 1860000, prefix: "₹ ", suffix: "", delta: "−0.6%", trend: [40, 38, 41, 39, 36, 38, 35, 33, 34, 32, 30, 31], lakh: true },
+  { label: "Open POs", target: 23, prefix: "", delta: "+3", trend: [3, 5, 4, 6, 7, 6, 8, 9, 8, 10, 11, 9] },
 ];
 
 const ledger = [
-  { time: "10:42", code: "INV-1042", who: "Walk-in", amount: "+ 2,140" },
+  { time: "10:42", code: "INV-1042", who: "Walk-in", amount: "+ 2,140", highlight: true },
   { time: "10:38", code: "PO-318", who: "Vyom Traders", amount: "− 18,400" },
   { time: "10:31", code: "INV-1041", who: "Aarav Kirana", amount: "+ 6,820" },
   { time: "10:24", code: "RCT-902", who: "Sumit Wholesale", amount: "+ 12,000" },
@@ -33,7 +34,6 @@ const ledger = [
 
 interface DashboardMockProps {
   className?: string;
-  /** when true, animates bars on mount/in view */
   animated?: boolean;
 }
 
@@ -57,6 +57,34 @@ const Sparkline = ({ data, animated = true }: { data: number[]; animated?: boole
       />
     </svg>
   );
+};
+
+const formatVal = (n: number, prefix = "", lakh = false) => {
+  if (lakh) return `${prefix}${(n / 100000).toFixed(1)}L`;
+  return `${prefix}${n.toLocaleString("en-IN")}`;
+};
+
+const CountUp = ({ target, prefix = "", lakh = false, animated = true, delay = 0 }: { target: number; prefix?: string; lakh?: boolean; animated?: boolean; delay?: number }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const [val, setVal] = useState(animated ? 0 : target);
+
+  useEffect(() => {
+    if (!animated || !inView) return;
+    const start = performance.now() + delay * 1000;
+    const dur = 1100;
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = Math.max(0, Math.min(1, (now - start) / dur));
+      const eased = 1 - Math.pow(1 - t, 3);
+      setVal(Math.round(target * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [animated, inView, target, delay]);
+
+  return <span ref={ref}>{formatVal(val, prefix, lakh)}</span>;
 };
 
 export const DashboardMock = ({ className = "", animated = true }: DashboardMockProps) => {
@@ -101,7 +129,10 @@ export const DashboardMock = ({ className = "", animated = true }: DashboardMock
           </div>
           <div className="flex items-center gap-1.5">
             <div className="text-[10px] font-mono text-muted-foreground bg-surface-1 px-2 py-1 border border-border rounded-sm">⌘ K</div>
-            <div className="text-[10px] font-mono text-muted-foreground bg-surface-1 px-2 py-1 border border-border rounded-sm">Live</div>
+            <div className="text-[10px] font-mono text-muted-foreground bg-surface-1 px-2 py-1 border border-border rounded-sm inline-flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-foreground status-pulse" />
+              Live
+            </div>
           </div>
         </div>
 
@@ -116,7 +147,9 @@ export const DashboardMock = ({ className = "", animated = true }: DashboardMock
               transition={{ duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="text-[9px] uppercase tracking-wider text-muted-foreground">{s.label}</div>
-              <div className="text-[13px] font-medium tracking-tight mt-1">{s.value}</div>
+              <div className="text-[13px] font-medium tracking-tight mt-1 tabular-nums">
+                <CountUp target={s.target} prefix={s.prefix} lakh={s.lakh} animated={animated} delay={i * 0.05} />
+              </div>
               <div className="flex items-center justify-between text-[9px] text-muted-foreground mt-0.5">
                 <span>{s.delta}</span>
               </div>
@@ -157,13 +190,17 @@ export const DashboardMock = ({ className = "", animated = true }: DashboardMock
           <div className="col-span-5 border border-border rounded-sm bg-surface-0 overflow-hidden">
             <div className="flex items-center justify-between px-3 py-2 border-b border-border">
               <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Activity</div>
-              <div className="text-[9px] text-muted-foreground font-mono">audit · live</div>
+              <div className="text-[9px] text-muted-foreground font-mono inline-flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground status-pulse" /> audit · live
+              </div>
             </div>
             <ul className="divide-y divide-border">
               {ledger.map((l, i) => (
                 <motion.li
                   key={i}
-                  className="px-3 py-2 flex items-center gap-2 text-[10.5px]"
+                  className={`relative px-3 py-2 flex items-center gap-2 text-[10.5px] ${
+                    l.highlight ? "bg-surface-1 row-sweep" : ""
+                  }`}
                   initial={animated ? { opacity: 0, x: -8 } : false}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}

@@ -281,21 +281,48 @@ const ModuleSpotlight = () => {
 /* --------------------------------------------------------------- SCREENSHOT THEATER */
 
 const screens = [
-  { caption: "Dashboard · the operating day", node: <DashboardMock /> },
-  { caption: "Products · a clean SKU master", node: <ProductsMock /> },
-  { caption: "Receipts · allocations without drift", node: <ReceiptsMock /> },
-  { caption: "Reports · weekly decision view", node: <ReportsMock /> },
-  { caption: "Audit log · every action accounted for", node: <AuditMock /> },
+  {
+    eyebrow: "Dashboard",
+    title: "The operating day, in one frame.",
+    caption: "Sales, receipts, stock value and open POs — sized for daily reading, not month-end review.",
+    node: <DashboardMock />,
+  },
+  {
+    eyebrow: "Products",
+    title: "A clean SKU master.",
+    caption: "Search, filter, status. Stock states emphasized where they matter — never lost in the table.",
+    node: <ProductsMock />,
+  },
+  {
+    eyebrow: "Receipts",
+    title: "Allocations without drift.",
+    caption: "Each receipt lands on an invoice. Outstanding balances shrink in plain sight.",
+    node: <ReceiptsMock />,
+  },
+  {
+    eyebrow: "Reports",
+    title: "Weekly decision view.",
+    caption: "Sales versus receipts at a glance — the same numbers used to close the period.",
+    node: <ReportsMock />,
+  },
+  {
+    eyebrow: "Audit log",
+    title: "Every action accounted for.",
+    caption: "Streaming events, attributed to a person. No black boxes. No missing context.",
+    node: <AuditMock />,
+  },
 ];
 
 const ScreenshotTheater = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const x = useTransform(scrollYProgress, [0.05, 0.95], ["6%", "-58%"]);
+  const reduced = useReducedMotion();
   return (
-    <section ref={ref} className="relative bg-surface-ink text-background border-b border-foreground/10 overflow-hidden">
-      <div className="container-edge pt-24 md:pt-32">
-        <div className="grid grid-cols-12 gap-6 mb-12">
+    <section
+      ref={ref}
+      className="relative bg-surface-ink text-background border-b border-foreground/10 overflow-hidden"
+    >
+      <div className="container-edge pt-24 md:pt-32 pb-10">
+        <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-4 flex items-start gap-4">
             <span className="num-tag text-background/60">05 ·</span>
             <span className="eyebrow text-background/70">Screenshot theater</span>
@@ -311,27 +338,67 @@ const ScreenshotTheater = () => {
         </div>
       </div>
 
-      <div className="relative h-[80vh] md:h-[90vh] overflow-hidden">
-        <motion.div className="absolute top-1/2 -translate-y-1/2 flex gap-8 px-8 md:px-16" style={{ x }}>
-          {screens.map((s, i) => (
-            <div key={i} className="shrink-0 w-[78vw] md:w-[60vw] lg:w-[55vw]">
-              <div className="num-tag text-background/60 mb-4">0{i + 1} · {s.caption}</div>
-              <div className="bg-background text-foreground rounded-md overflow-hidden shadow-pop border border-foreground/10">
-                <div className="app-frame-bar">
-                  <span className="app-dot" />
-                  <span className="app-dot" />
-                  <span className="app-dot" />
-                  <div className="flex-1 text-center text-[10px] text-muted-foreground font-mono">app.busnieshub.com</div>
+      <div className="container-edge pb-24 md:pb-32 space-y-20 md:space-y-32">
+        {screens.map((s, i) => {
+          const flipped = i % 2 === 1;
+          return (
+            <div
+              key={i}
+              className={`grid grid-cols-12 gap-6 lg:gap-10 items-start ${flipped ? "lg:[&>*:first-child]:order-2" : ""}`}
+            >
+              {/* Caption column */}
+              <div className="col-span-12 lg:col-span-3 lg:sticky lg:top-28">
+                <div className="num-tag text-background/50">0{i + 1} · {s.eyebrow}</div>
+                <h3 className="font-display text-2xl md:text-3xl tracking-tight mt-3 leading-[1.05]">
+                  {s.title}
+                </h3>
+                <p className="text-[13.5px] text-background/65 leading-relaxed mt-4 max-w-sm">
+                  {s.caption}
+                </p>
+                <div className="mt-6 flex items-center gap-2 text-[10px] font-mono text-background/45">
+                  <span className="w-1.5 h-1.5 rounded-full bg-background/70 status-pulse" />
+                  Live workspace
                 </div>
-                {s.node}
+              </div>
+
+              {/* Frame column */}
+              <div className="col-span-12 lg:col-span-9">
+                <motion.div
+                  initial={reduced ? false : { opacity: 0, y: 32, clipPath: "inset(8% 0 8% 0)" }}
+                  whileInView={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0% 0)" }}
+                  viewport={{ once: true, margin: "-15% 0px" }}
+                  transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative frame-lift"
+                >
+                  <div className="bg-background text-foreground rounded-md overflow-hidden shadow-pop border border-foreground/10">
+                    <div className="app-frame-bar">
+                      <span className="app-dot" />
+                      <span className="app-dot" />
+                      <span className="app-dot" />
+                      <div className="flex-1 text-center text-[10px] text-muted-foreground font-mono tracking-wide">
+                        app.busnieshub.com / {s.eyebrow.toLowerCase()}
+                      </div>
+                      <span className="text-[10px] text-muted-foreground font-mono inline-flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground status-pulse" />
+                        live
+                      </span>
+                    </div>
+                    {s.node}
+                  </div>
+                  {/* Soft layered caption tag */}
+                  <div className="hidden md:flex absolute -bottom-4 left-4 items-center gap-2 bg-background text-foreground border border-foreground/15 px-2.5 py-1.5 rounded-sm shadow-soft">
+                    <span className="font-mono text-[9px] text-muted-foreground uppercase tracking-wider">Frame</span>
+                    <span className="font-mono text-[10px]">0{i + 1} / {screens.length}</span>
+                  </div>
+                </motion.div>
               </div>
             </div>
-          ))}
-        </motion.div>
+          );
+        })}
       </div>
 
-      <div className="container-edge py-16 text-background/60 text-xs flex justify-between">
-        <span>Scroll to advance</span>
+      <div className="container-edge pb-16 text-background/55 text-xs flex justify-between border-t border-foreground/10 pt-8">
+        <span>Real screens. No fake live demo.</span>
         <span className="font-mono">{screens.length} frames · 1 product</span>
       </div>
     </section>

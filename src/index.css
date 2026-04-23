@@ -228,4 +228,98 @@
     display: flex; gap: 4rem; width: max-content;
     animation: marquee 40s linear infinite;
   }
+
+  /* ---- Mock UI micro-motion ---- */
+
+  /* Blinking caret for live-feeling search bars */
+  @keyframes caret-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  .caret-blink {
+    display: inline-block; width: 1px; height: 0.85em;
+    background: currentColor; vertical-align: middle;
+    animation: caret-blink 1s steps(1, end) infinite;
+    margin-left: 1px;
+  }
+
+  /* Calm status dot pulse */
+  @keyframes status-pulse {
+    0% { box-shadow: 0 0 0 0 hsl(0 0% 0% / 0.30); }
+    70% { box-shadow: 0 0 0 6px hsl(0 0% 0% / 0); }
+    100% { box-shadow: 0 0 0 0 hsl(0 0% 0% / 0); }
+  }
+  .status-pulse { animation: status-pulse 2.4s ease-out infinite; }
+  .dark .status-pulse { animation-name: status-pulse-dark; }
+  @keyframes status-pulse-dark {
+    0% { box-shadow: 0 0 0 0 hsl(0 0% 100% / 0.35); }
+    70% { box-shadow: 0 0 0 6px hsl(0 0% 100% / 0); }
+    100% { box-shadow: 0 0 0 0 hsl(0 0% 100% / 0); }
+  }
+
+  /* Shimmer for placeholder/loading panels */
+  @keyframes shimmer-sweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+  .shimmer {
+    position: relative; overflow: hidden;
+    background: hsl(var(--surface-1));
+  }
+  .shimmer::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      hsl(0 0% 100% / 0.55) 50%,
+      transparent 100%);
+    animation: shimmer-sweep 2.2s ease-in-out infinite;
+  }
+  .dark .shimmer::after {
+    background: linear-gradient(90deg,
+      transparent 0%,
+      hsl(0 0% 100% / 0.06) 50%,
+      transparent 100%);
+  }
+
+  /* Row highlight sweep (hovered/selected) */
+  @keyframes row-sweep {
+    0% { transform: translateX(-100%); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+  }
+  .row-sweep::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 0% / 0.05), transparent);
+    animation: row-sweep 3.6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .dark .row-sweep::after {
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.06), transparent);
+  }
+
+  /* Notification badge soft pulse */
+  @keyframes badge-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+  .badge-pulse { animation: badge-pulse 2.6s ease-in-out infinite; transform-origin: center; }
+
+  /* Soft hover lift for screenshot frames */
+  .frame-lift {
+    transition: transform 700ms var(--ease-out-expo), box-shadow 700ms var(--ease-out-expo);
+    will-change: transform;
+  }
+  .frame-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-pop);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .caret-blink, .status-pulse, .badge-pulse,
+    .shimmer::after, .row-sweep::after,
+    .marquee-track {
+      animation: none !important;
+    }
+  }
 }
+
