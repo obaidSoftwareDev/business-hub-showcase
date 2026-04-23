@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Sun, Moon } from "lucide-react";
 import MagneticLink from "@/components/motion/MagneticLink";
+import { useTheme } from "@/hooks/use-theme";
 
 const primaryNav = [
   { to: "/", label: "BusniessHub" },
@@ -29,6 +30,7 @@ export const SiteHeader = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -135,6 +137,15 @@ export const SiteHeader = () => {
         </nav>
 
         <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            data-testid="button-toggle-theme"
+            className="inline-flex items-center justify-center w-9 h-9 border border-border rounded-sm hover:bg-foreground/5 transition-colors"
+          >
+            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
           <Link
             to="/login"
             className="hidden md:inline-flex text-[13px] text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
