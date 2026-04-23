@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import evorixWordmark from "@/assets/evorix-wordmark.webp";
+import footerBg from "@assets/generated_images/footer_bg.png";
 import { ArrowUpRight } from "lucide-react";
 
 const cols = [
@@ -43,8 +44,18 @@ const cols = [
 
 export const SiteFooter = () => {
   return (
-    <footer className="border-t border-border bg-surface-1">
-      <div className="container-edge py-16 md:py-24">
+    <footer className="relative border-t border-border bg-surface-1 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <img
+          src={footerBg}
+          alt=""
+          data-testid="img-footer-background"
+          className="w-full h-full object-cover opacity-60 select-none"
+          draggable={false}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-1 via-surface-1/70 to-surface-1/40" />
+      </div>
+      <div className="relative container-edge py-16 md:py-24">
         <div className="grid gap-12 lg:gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Link to="/" className="inline-flex items-center gap-2">
