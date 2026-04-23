@@ -10,6 +10,7 @@ import { Parallax } from "@/components/motion/Parallax";
 import CursorDepth from "@/components/motion/CursorDepth";
 import AmbientDepth from "@/components/motion/AmbientDepth";
 import AppFrame from "@/components/mock/AppFrame";
+import heroBg from "@assets/generated_images/hero_bg.png";
 import DashboardMock from "@/components/mock/DashboardMock";
 import ProductsMock from "@/components/mock/ProductsMock";
 import ReceiptsMock from "@/components/mock/ReceiptsMock";
@@ -29,6 +30,20 @@ const HeroSection = () => {
   return (
     <section ref={ref} className="relative pt-32 md:pt-40 pb-24 md:pb-32 overflow-hidden border-b border-border">
       <AmbientDepth intensity="med" />
+      <motion.div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{ y: y1 }}
+      >
+        <img
+          src={heroBg}
+          alt=""
+          data-testid="img-hero-background"
+          className="w-full h-full object-cover opacity-[0.18] dark:opacity-[0.22] mask-vignette select-none pointer-events-none"
+          draggable={false}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
+      </motion.div>
       <div className="absolute inset-0 grid-bg mask-vignette opacity-50" aria-hidden />
 
       <div className="container-edge relative">
