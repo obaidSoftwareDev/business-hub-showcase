@@ -77,15 +77,50 @@ const Product = () => {
         primaryCta={{ label: "Open Workspace", to: "/app" }}
         secondaryCta={{ label: "See pricing", to: "/pricing" }}
         visualTitle="Dashboard · Acme Retail"
+        visualUrl="app.busnieshub.com/dashboard"
         visual={<DashboardMock />}
+        tone="Workspace overview"
+        frameCaption="Frame 01 / 12 · Dashboard"
+        meta={[
+          { label: "Build", value: "v3.4" },
+          { label: "Modules", value: "12" },
+          { label: "Audit", value: "live" },
+        ]}
+        kpis={[
+          { k: "Modules shipped", v: "12", sub: "All first-class" },
+          { k: "Operating loop", v: "6 steps", sub: "Add → Trace" },
+          { k: "Audit log", v: "Streaming", sub: "Every action" },
+          { k: "Workspaces", v: "Multi", sub: "Books fully scoped" },
+        ]}
+        secondaryTitle="Stock alert"
+        secondaryUrl="alerts.busnieshub.com"
+        secondaryFragment={
+          <div className="p-4">
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground">3 SKUs below threshold</div>
+            <ul className="mt-3 divide-y divide-border text-[11px]">
+              <li className="flex items-center justify-between py-2"><span>SKU-10422 · Mustard Oil</span><span className="font-mono">12</span></li>
+              <li className="flex items-center justify-between py-2"><span>SKU-10423 · Cooker 5L</span><span className="font-mono">4</span></li>
+              <li className="flex items-center justify-between py-2"><span>SKU-10428 · Towel C</span><span className="font-mono">6</span></li>
+            </ul>
+            <div className="mt-4 pt-3 border-t border-border">
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Today</div>
+              <div className="mt-1 flex items-baseline justify-between">
+                <span className="font-display text-xl tracking-tight">₹4.82L</span>
+                <span className="font-mono text-[10px] text-muted-foreground">+12%</span>
+              </div>
+              <div className="mt-3 h-1.5 bg-surface-1 relative overflow-hidden">
+                <div className="absolute inset-y-0 left-0 bg-foreground" style={{ width: "62%" }} />
+              </div>
+            </div>
+          </div>
+        }
         sidePanel={
           <div className="p-3">
-            <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Stock alert</div>
-            <div className="text-sm font-medium tracking-tight mt-1">3 SKUs below threshold</div>
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Open POs</div>
+            <div className="text-sm font-medium tracking-tight mt-1">7 awaiting receipt</div>
             <ul className="mt-2 divide-y divide-border text-[10.5px]">
-              <li className="flex items-center justify-between py-1.5"><span>SKU-10422 · Mustard Oil</span><span className="font-mono">12</span></li>
-              <li className="flex items-center justify-between py-1.5"><span>SKU-10423 · Cooker 5L</span><span className="font-mono">4</span></li>
-              <li className="flex items-center justify-between py-1.5"><span>SKU-10428 · Towel C</span><span className="font-mono">6</span></li>
+              <li className="flex items-center justify-between py-1.5"><span>PO-3041 · Sundar Wholesale</span><span className="font-mono">₹62k</span></li>
+              <li className="flex items-center justify-between py-1.5"><span>PO-3045 · Ambika Foods</span><span className="font-mono">₹38k</span></li>
             </ul>
           </div>
         }

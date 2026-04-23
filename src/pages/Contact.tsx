@@ -23,11 +23,48 @@ const Contact = () => {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
+        eyebrow="Contact · start a conversation"
         title="Talk to the team behind BusniessHub."
         description="Setup, demo, fit, support, partnerships — start a conversation and we'll route you to the right person."
+        primaryCta={{ label: "Send a note", to: "#contact" }}
+        secondaryCta={{ label: "Book a demo", to: "#contact" }}
         visualTitle="Suppliers · partner ledger"
+        visualUrl="app.busnieshub.com/suppliers"
         visual={<SuppliersMock />}
+        tone="Inquiry & onboarding"
+        frameCaption="Frame 09 / 12 · Suppliers"
+        meta={[
+          { label: "Reply", value: "≤ 1 business day" },
+          { label: "Demos", value: "Operator-led" },
+          { label: "Maker", value: "EVORIX" },
+        ]}
+        kpis={[
+          { k: "Reply window", v: "≤ 1 day", sub: "Usually faster" },
+          { k: "Routes", v: "3", sub: "Demo · Setup · Fit" },
+          { k: "Sales calls", v: "0", sub: "Conversations only" },
+          { k: "Real person", v: "Always", sub: "No automation" },
+        ]}
+        secondaryTitle="Reach"
+        secondaryUrl="hello.busnieshub.com"
+        secondaryFragment={
+          <ul className="p-4 text-[11px] divide-y divide-border">
+            {[
+              { k: "Demo", v: "demo@busnieshub.app" },
+              { k: "Setup", v: "setup@busnieshub.app" },
+              { k: "Fit", v: "hello@busnieshub.app" },
+              { k: "Support", v: "support@busnieshub.app" },
+            ].map((r) => (
+              <li key={r.k} className="py-2.5 flex items-baseline justify-between gap-3">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{r.k}</span>
+                <span className="font-mono">{r.v}</span>
+              </li>
+            ))}
+            <li className="pt-3 mt-1 border-t border-border flex items-center justify-between font-mono text-[10px] text-muted-foreground">
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-foreground status-pulse" />Inbox</span>
+              <span>open</span>
+            </li>
+          </ul>
+        }
       />
 
       <Section index="01 ·" eyebrow="How to reach us" title="Choose the conversation that fits.">

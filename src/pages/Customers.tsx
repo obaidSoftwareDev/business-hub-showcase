@@ -27,8 +27,43 @@ const Customers = () => (
       title="Operators who need the books to match the floor."
       description="Retailers, wholesalers and operator-led teams choose BusniessHub when discipline matters more than dashboards."
       primaryCta={{ label: "Talk to the team", to: "/contact" }}
+      secondaryCta={{ label: "See pricing", to: "/pricing" }}
       visualTitle="Receipts · allocations"
+      visualUrl="app.busnieshub.com/receipts"
       visual={<ReceiptsMock />}
+      tone="Operator workflows"
+      frameCaption="Frame 04 / 12 · Receipts"
+      meta={[
+        { label: "Segments", value: "3" },
+        { label: "Books match floor", value: "Daily" },
+        { label: "Audit", value: "per workspace" },
+      ]}
+      kpis={[
+        { k: "Operating shapes", v: "3", sub: "Retail · Wholesale · Multi-biz" },
+        { k: "Daily close", v: "Minutes", sub: "Not hours" },
+        { k: "Floating receipts", v: "0", sub: "Allocations enforced" },
+        { k: "Sources of truth", v: "1", sub: "One workspace" },
+      ]}
+      secondaryTitle="Customer ledger"
+      secondaryUrl="ledger.busnieshub.com"
+      secondaryFragment={
+        <div className="p-4 text-[11px]">
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Top open balance</div>
+          <div className="font-display text-2xl tracking-tight mt-1">₹2,46,300</div>
+          <div className="mt-1 text-muted-foreground">Sundar Wholesale · 14 invoices</div>
+          <div className="mt-4 border-t border-border pt-3 space-y-1.5">
+            <div className="flex items-center justify-between"><span>Invoiced</span><span className="font-mono">₹4.12L</span></div>
+            <div className="flex items-center justify-between"><span>Received</span><span className="font-mono">₹1.66L</span></div>
+            <div className="flex items-center justify-between"><span>Open</span><span className="font-mono font-medium">₹2.46L</span></div>
+          </div>
+          <div className="mt-3 h-1.5 bg-surface-1 relative overflow-hidden">
+            <div className="absolute inset-y-0 left-0 bg-foreground" style={{ width: "40%" }} />
+          </div>
+          <div className="mt-1 flex items-center justify-between font-mono text-[9px] text-muted-foreground">
+            <span>Collected 40%</span><span>60% open</span>
+          </div>
+        </div>
+      }
     />
 
     <Section index="01 ·" eyebrow="Who uses BusniessHub" title="Three operating shapes. One platform.">

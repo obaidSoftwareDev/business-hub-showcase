@@ -314,10 +314,91 @@
     box-shadow: var(--shadow-pop);
   }
 
+  /* Hero scaffolding — horizontal scan lines */
+  .scan-lines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 7px,
+      hsl(0 0% 0% / 0.022) 7px,
+      hsl(0 0% 0% / 0.022) 8px
+    );
+  }
+  .dark .scan-lines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 7px,
+      hsl(0 0% 100% / 0.03) 7px,
+      hsl(0 0% 100% / 0.03) 8px
+    );
+  }
+
+  /* Hero hand-off ribbon — fades scaffolding into next section */
+  .hero-handoff {
+    background-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      hsl(var(--background)) 100%
+    );
+  }
+
+  /* Crosshair brackets used at hero corners */
+  .crosshair {
+    position: absolute;
+    width: 14px; height: 14px;
+    pointer-events: none;
+    color: hsl(var(--foreground) / 0.35);
+  }
+  .crosshair::before, .crosshair::after {
+    content: ""; position: absolute; background: currentColor;
+  }
+  .crosshair::before { left: 0; top: 0; width: 100%; height: 1px; }
+  .crosshair::after  { left: 0; top: 0; width: 1px; height: 100%; }
+  .crosshair.tr { transform: scaleX(-1); }
+  .crosshair.bl { transform: scaleY(-1); }
+  .crosshair.br { transform: scale(-1, -1); }
+
+  /* Hero KPI strip — premium small data ticker */
+  .hero-kpis { @apply grid grid-cols-3 sm:grid-cols-4 border-y border-border; }
+  .hero-kpis > * {
+    @apply px-4 py-3 border-r border-border last:border-r-0;
+  }
+
+  /* Animated underline that draws on view */
+  @keyframes draw-line {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  .draw-line {
+    transform-origin: left;
+    animation: draw-line 1.2s var(--ease-out-expo) both;
+  }
+
+  /* Meta strip dots */
+  .meta-dot {
+    @apply inline-block w-1.5 h-1.5 rounded-full bg-foreground;
+  }
+
+  /* Soft floating ribbon used as secondary hero fragment */
+  .ribbon-frame {
+    @apply relative border border-border bg-card overflow-hidden;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Plan card subtle hover lift */
+  .plan-card {
+    transition: transform 600ms var(--ease-out-expo), box-shadow 600ms var(--ease-out-expo), border-color 600ms var(--ease-out-expo);
+  }
+  .plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-pop);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .caret-blink, .status-pulse, .badge-pulse,
     .shimmer::after, .row-sweep::after,
-    .marquee-track {
+    .marquee-track, .draw-line {
       animation: none !important;
     }
   }

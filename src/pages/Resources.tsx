@@ -33,8 +33,45 @@ const Resources = () => {
         eyebrow="Resources · operator hub"
         title="Everything to learn, run and master BusniessHub."
         description="Guides, walkthroughs and workflow checklists — built for operators, not engineers."
+        primaryCta={{ label: "Open hub", to: "#hub" }}
+        secondaryCta={{ label: "View changelog", to: "/changelog" }}
         visualTitle="Categories · how to organize"
+        visualUrl="docs.busnieshub.com/categories"
         visual={<CategoriesMock />}
+        tone="Operator hub"
+        frameCaption="Frame 05 / 12 · Categories"
+        meta={[
+          { label: "Articles", value: "120+" },
+          { label: "Walkthroughs", value: "24" },
+          { label: "Updated", value: "weekly" },
+        ]}
+        kpis={[
+          { k: "Guides", v: "120+", sub: "Operator-written" },
+          { k: "Walkthroughs", v: "24", sub: "Loop-shaped" },
+          { k: "Workflows", v: "11", sub: "Daily checklists" },
+          { k: "Cadence", v: "Weekly", sub: "New content" },
+        ]}
+        secondaryTitle="Recently shipped"
+        secondaryUrl="docs.busnieshub.com/new"
+        secondaryFragment={
+          <ul className="p-4 divide-y divide-border text-[11px]">
+            {[
+              { t: "Daily close checklist", f: "Workflows", r: "4 min" },
+              { t: "Receive a PO end-to-end", f: "Walkthrough", r: "9 min" },
+              { t: "Reading the audit log", f: "Help", r: "6 min" },
+              { t: "Setup your first workspace", f: "Getting started", r: "8 min" },
+              { t: "Period close walkthrough", f: "Walkthrough", r: "12 min" },
+            ].map((r) => (
+              <li key={r.t} className="py-2.5 flex flex-col gap-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{r.f}</span>
+                  <span className="font-mono text-[9px] text-muted-foreground">{r.r}</span>
+                </div>
+                <span className="font-medium tracking-tight leading-snug">{r.t}</span>
+              </li>
+            ))}
+          </ul>
+        }
       />
 
       <Section index="01 ·" eyebrow="Hub" title="A search-first, filter-led resource library.">

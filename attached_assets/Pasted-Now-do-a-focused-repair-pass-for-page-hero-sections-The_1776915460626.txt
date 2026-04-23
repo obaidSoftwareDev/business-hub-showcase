@@ -1,0 +1,305 @@
+Now do a focused repair pass for page hero sections.
+The current issue is that several page heroes feel too empty, too plain, and visually underbuilt.
+
+Main problem:
+Some heroes have text, but not enough supporting structure.
+They feel blank instead of premium.
+They need more visual density, more composition, more depth, and stronger product relevance.
+
+Goal:
+Every major page hero should feel intentionally designed, visually anchored, and product-real.
+Not busy, not colorful, not decorative for no reason — but definitely not empty.
+
+Pages to fix:
+- Product
+- Modules
+- Pricing
+- Customers
+- Resources
+- Changelog
+- Security & Trust
+- About
+- Contact
+
+-----------------------------------
+PART 1 — HERO DENSITY RULES
+-----------------------------------
+
+Every hero must include more than just headline and paragraph.
+
+Each hero should have:
+- stronger background structure
+- relevant product imagery or UI crop
+- layered planes or framed interface pieces
+- subtle pattern / grid / line system if useful
+- calm background + moving foreground separation
+- motion-aware composition
+
+Do not use blank dark surfaces with only text.
+Do not use empty premium space with no tension.
+Do not leave the hero visually unsupported.
+
+-----------------------------------
+PART 2 — BACKGROUND BUILDING
+-----------------------------------
+
+Add controlled background support to each hero using a mix of:
+- subtle grid or data-line patterns
+- soft masked product UI crops
+- layered screenshot fragments
+- blurred panel silhouettes
+- interface scaffolding lines
+- restrained motion overlays
+- thin structural borders
+- soft light falloff
+- muted directional gradients only if very subtle
+
+Important:
+No colorful blobs.
+No bright startup gradients.
+No random abstract art.
+Everything should feel product-related and structured.
+
+-----------------------------------
+PART 3 — PRODUCT-RELEVANT HERO VISUALS
+-----------------------------------
+
+Each hero needs imagery or interface fragments that match its page purpose.
+
+1. Product hero
+- broad workspace overview
+- dashboard + table + metrics fragments
+- serious system-level composition
+
+2. Modules hero
+- multi-panel system composition
+- product, purchases, reports, audit fragments
+- modular visual rhythm
+
+3. Pricing hero
+- structured pricing tables + billing-like UI framing
+- no empty black void
+
+4. Customers hero
+- customer list/table fragments
+- workflow proof layout
+- account / ledger / invoice-like composition
+
+5. Resources hero
+- docs/article cards, guide blocks, documentation rhythm
+- cleaner editorial data-system look
+
+6. Changelog hero
+- timeline fragments
+- release card layers
+- update list composition
+
+7. Security & Trust hero
+- audit log crop
+- permission/status blocks
+- traceability and access-control visuals
+- serious trust tone
+
+8. About hero
+- product philosophy visuals
+- structural layout
+- BusniessHub-first identity, EVORIX secondary
+
+9. Contact hero
+- strong CTA framing
+- clean, confident inquiry composition
+- not blank and not generic
+
+-----------------------------------
+PART 4 — HERO MOTION
+-----------------------------------
+
+Upgrade hero motion on every page.
+
+Use:
+- strong entrance sequencing
+- foreground panels moving slightly more than background
+- subtle cursor-reactive depth on desktop where appropriate
+- masked reveal for UI fragments
+- staggered copy reveal
+- premium CTA hover polish
+
+Important:
+Motion must support the hero, not overwhelm it.
+The hero should feel expensive and deliberate.
+
+-----------------------------------
+PART 5 — CTA AND SEARCH / FEATURE MICRO-DETAILS
+-----------------------------------
+
+Where relevant, include small hero-level micro interactions:
+- blinking search caret
+- underline slide on active tab
+- button shine / light sweep
+- subtle KPI count-up
+- selected card emphasis
+- list item hover shift
+
+These must feel like product signals, not decoration.
+
+-----------------------------------
+PART 6 — LONG-PAGE CONTINUITY
+-----------------------------------
+
+The hero must visually hand off into the first section below it.
+Do not let the page feel like hero -> hard break -> content dump.
+
+Use:
+- overlapping transitions
+- screenshot fragment continuation
+- subtle carry-over lines or panels
+- masked continuity between hero and first story section
+
+-----------------------------------
+PART 7 — MOBILE
+-----------------------------------
+
+Preserve hero richness on mobile:
+- keep product fragments visible
+- avoid collapsing to plain text block
+- simplify motion but keep hierarchy
+- maintain visual identity per page
+
+-----------------------------------
+FINAL RESULT
+-----------------------------------
+
+Each hero should feel:
+- fuller
+- more product-real
+- more structured
+- less empty
+- more premium
+- more aligned with the page topic
+
+Do not:
+- do not leave big blank surfaces
+- do not use decorative nonsense
+- do not repeat the exact same hero system on every page
+- do not make heroes text-only
+Follow-up prompt 3 — combined page upgrade prompt
+
+Use this after the first two. This one combines a few pages and strengthens them.
+
+Keep the current BusniessHub product-first direction.
+Do not redesign the whole site from scratch.
+Preserve the sharp 2D minimal visual language, premium monochrome palette, and serious business-software tone.
+The website should remain visually restrained and minimal, but motion and interaction quality should feel extremely premium and high-effort.
+BusniessHub must remain the main brand, while EVORIX stays secondary as the maker only.
+All changes should make sections feel denser, more intentional, more product-real, and more alive.
+Do not add colorful startup styling, cartoon graphics, generic SaaS blobs, or overdecorated visuals.
+
+Now do a combined upgrade pass for these pages:
+- Product
+- Modules
+- Security & Trust
+- Pricing
+
+Main problem:
+These pages need stronger section storytelling, more product evidence, better screenshot usage, and stronger motion rhythm.
+They should feel like flagship product pages, not polite marketing pages.
+
+-----------------------------------
+PART 1 — PRODUCT PAGE
+-----------------------------------
+
+Make the Product page much deeper and more section-led.
+
+Required improvements:
+- longer sections
+- stronger visual rhythm
+- screenshot-backed storytelling
+- more real operational flow
+- clearer transitions between dashboard, products, purchases, sales, collections, reports, and audit log
+
+Each major section needs:
+- headline
+- short business value statement
+- operational explanation
+- visual proof block
+- screenshot or cropped UI composition
+- stronger motion reveal
+
+-----------------------------------
+PART 2 — MODULES PAGE
+-----------------------------------
+
+This page must feel like a serious module architecture page.
+
+For each module:
+- create a distinct visual block
+- give it its own product crop / mockup zone
+- show what that module controls
+- show why it matters
+- use premium hover/reveal motion
+
+Modules to strengthen:
+- Dashboard
+- Products
+- Categories
+- Purchases
+- Customers
+- Collections
+- Reports
+- Audit Log
+- Business Scope / Workspace
+- Payment / Receipt allocation
+- Stock visibility / ledger
+
+-----------------------------------
+PART 3 — SECURITY & TRUST PAGE
+-----------------------------------
+
+This page must feel grounded and real, not generic “secure platform” fluff.
+
+Use product-grounded trust:
+- login / access
+- role-based usage
+- audit log visibility
+- business/workspace separation
+- traceable actions
+- operational accountability
+
+Add:
+- stronger serious hero
+- trust proof blocks
+- audit-log and activity visuals
+- structured FAQ
+- realistic tone
+
+-----------------------------------
+PART 4 — PRICING PAGE
+-----------------------------------
+
+The pricing page must feel more commercially ready.
+
+Improve:
+- pricing card polish
+- recommended plan hierarchy
+- feature comparison readability
+- onboarding explanation
+- better CTA logic
+- smoother reveal transitions
+- stronger plan-selection confidence
+
+Do not build fake checkout.
+Keep it contact/setup oriented.
+
+-----------------------------------
+PART 5 — CROSS-PAGE RULE
+-----------------------------------
+
+Across all 4 pages:
+- reduce dead empty space
+- improve screenshot presence
+- improve visual anchors
+- create better continuity between sections
+- make every page feel long, intentional, and premium
+
+Final result:
+These pages should feel like high-value product pages with stronger proof, stronger visual storytelling, and stronger product credibility.

@@ -132,7 +132,24 @@ const ModulesPage = () => {
         primaryCta={{ label: "See pricing", to: "/pricing" }}
         secondaryCta={{ label: "Open Workspace", to: "/app" }}
         visualTitle="Products · 2,184 SKUs"
+        visualUrl="app.busnieshub.com/products"
         visual={<ProductsMock />}
+        tone="Modular architecture"
+        frameCaption="Frame 02 / 12 · Products"
+        meta={[
+          { label: "Modules", value: "12" },
+          { label: "Shared ledger", value: "1" },
+          { label: "Audit", value: "always-on" },
+        ]}
+        kpis={[
+          { k: "First-class modules", v: "12" },
+          { k: "Shared scope", v: "Workspace" },
+          { k: "Cross-module audit", v: "Yes" },
+          { k: "Reconciliations", v: "0" },
+        ]}
+        secondaryTitle="Audit · live"
+        secondaryUrl="audit.busnieshub.com"
+        secondaryFragment={<AuditMock />}
       />
 
       {modules.map((m, idx) => (

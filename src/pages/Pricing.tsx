@@ -55,11 +55,61 @@ const PricingPage = () => {
   return (
     <>
       <PageHero
-        eyebrow="Pricing"
+        eyebrow="Pricing · operator-shaped"
         title="Three plans. Each shaped around how operators actually run."
         description="No seat-count gymnastics. No hidden tiers. Pricing is a function of how your business operates."
+        primaryCta={{ label: "Book a demo", to: "/contact" }}
+        secondaryCta={{ label: "Compare features", to: "#feature-comparison" }}
         visualTitle="Reports · weekly summary"
+        visualUrl="app.busnieshub.com/reports"
         visual={<ReportsMock />}
+        tone="Pricing & onboarding"
+        frameCaption="Frame 03 / 12 · Reports"
+        meta={[
+          { label: "Plans", value: "3" },
+          { label: "Onboarding", value: "Included" },
+          { label: "Setup", value: "Implementation-led" },
+        ]}
+        kpis={[
+          { k: "Plans", v: "3", sub: "Starter · Business · Enterprise" },
+          { k: "Setup model", v: "Implementation", sub: "Not configuration" },
+          { k: "Onboarding", v: "1 week", sub: "On-floor presence" },
+          { k: "Hidden tiers", v: "0", sub: "Transparent matrix" },
+        ]}
+        secondaryTitle="Plan suggestion"
+        secondaryUrl="setup.busnieshub.com"
+        secondaryFragment={
+          <div className="p-4">
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Where most land</div>
+            <div className="text-sm font-medium tracking-tight mt-1">Business</div>
+            <div className="mt-3 border border-border p-3">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">Recommended</span>
+                <span className="font-mono text-[10px]">Tier 02</span>
+              </div>
+              <ul className="mt-3 space-y-1.5 text-[11px]">
+                <li>Single workspace</li>
+                <li>Up to 25 users</li>
+                <li>Advanced reports</li>
+                <li>Onboarding included</li>
+              </ul>
+            </div>
+            <div className="mt-3 grid grid-cols-3 text-center border border-border">
+              <div className="p-2 border-r border-border">
+                <div className="font-mono text-[9px] text-muted-foreground">Start</div>
+                <div className="text-sm font-medium mt-0.5">S</div>
+              </div>
+              <div className="p-2 border-r border-border bg-foreground text-background">
+                <div className="font-mono text-[9px] opacity-60">Pick</div>
+                <div className="text-sm font-medium mt-0.5">B</div>
+              </div>
+              <div className="p-2">
+                <div className="font-mono text-[9px] text-muted-foreground">Scale</div>
+                <div className="text-sm font-medium mt-0.5">E</div>
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Section index="01 ·" eyebrow="Which plan fits" title="A short orientation, before the table." variant="muted">
@@ -86,25 +136,31 @@ const PricingPage = () => {
 
       {/* Tiers */}
       <Section index="02 ·" eyebrow="Plans" title="Three tiers — built around the way you operate.">
-        <div className="grid md:grid-cols-3 gap-px bg-border border border-border">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-7">
           {tiers.map((t, i) => (
             <motion.div
               key={t.name}
-              className={`bg-background p-8 md:p-10 flex flex-col ${t.featured ? "ring-1 ring-foreground" : ""}`}
+              className={`plan-card relative bg-background p-8 md:p-10 flex flex-col border ${t.featured ? "border-foreground" : "border-border"}`}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.07 }}
             >
+              {t.featured && (
+                <span className="absolute -top-2.5 left-8 bg-foreground text-background text-[9px] uppercase tracking-[0.18em] px-2.5 py-1 font-mono">
+                  Most operators land here
+                </span>
+              )}
               <div className="flex items-center justify-between">
-                <div className="num-tag">{t.name}</div>
-                {t.featured && <span className="text-[9px] uppercase tracking-wider bg-foreground text-background px-2 py-1">Recommended</span>}
+                <div className="num-tag">Plan 0{i + 1}</div>
+                <div className="font-mono text-[10px] text-muted-foreground">{t.name}</div>
               </div>
               <h3 className="h-card mt-4">{t.audience}</h3>
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{t.desc}</p>
+              <div className="mt-6 h-px bg-border" />
               <ul className="mt-6 space-y-2.5 text-sm">
                 {t.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2">
+                  <li key={f} className="flex items-start gap-2.5">
                     <Check className="w-3.5 h-3.5 mt-1 shrink-0" />
                     <span>{f}</span>
                   </li>
@@ -113,12 +169,16 @@ const PricingPage = () => {
               <div className="mt-auto pt-8">
                 <Link
                   to={t.cta.to}
-                  className={`btn-sheen inline-flex items-center justify-center w-full text-sm py-3 rounded-sm ${
+                  className={`btn-sheen group inline-flex items-center justify-center w-full text-sm py-3 rounded-sm ${
                     t.featured ? "bg-foreground text-background" : "border border-border hover:bg-surface-1"
                   }`}
                 >
                   {t.cta.label}
+                  <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
+                <p className="mt-3 text-[10.5px] text-muted-foreground text-center font-mono">
+                  Implementation-led setup · No fake checkout
+                </p>
               </div>
             </motion.div>
           ))}
@@ -126,7 +186,7 @@ const PricingPage = () => {
       </Section>
 
       {/* Comparison */}
-      <Section index="03 ·" eyebrow="Feature comparison" title="What's included, plan by plan." variant="muted">
+      <Section id="feature-comparison" index="03 ·" eyebrow="Feature comparison" title="What's included, plan by plan." variant="muted">
         <div className="border border-border bg-background overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

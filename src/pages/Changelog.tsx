@@ -18,8 +18,44 @@ const Changelog = () => (
       eyebrow="Changelog · product evolution"
       title="Every release that has shaped the operating loop."
       description="A grounded log of what changed and why — written for operators who depend on the platform."
+      primaryCta={{ label: "See latest release", to: "#latest" }}
+      secondaryCta={{ label: "Open Workspace", to: "/app" }}
       visualTitle="Stock ledger · v3.0+"
+      visualUrl="app.busnieshub.com/stock"
       visual={<StockLedgerMock />}
+      tone="Release timeline"
+      frameCaption="Frame 06 / 12 · Stock ledger"
+      meta={[
+        { label: "Latest", value: "v3.4" },
+        { label: "Released", value: "23 Apr 2026" },
+        { label: "Cadence", value: "Monthly" },
+      ]}
+      kpis={[
+        { k: "Releases tracked", v: "12+", sub: "Since v2.0" },
+        { k: "Latest", v: "v3.4", sub: "Apr 2026" },
+        { k: "Cadence", v: "Monthly", sub: "No surprise drops" },
+        { k: "Reversible by default", v: "Yes", sub: "Clean migrations" },
+      ]}
+      secondaryTitle="Release stream"
+      secondaryUrl="changelog.busnieshub.com"
+      secondaryFragment={
+        <ul className="p-4 divide-y divide-border text-[11px]">
+          {releases.slice(0, 5).map((r) => (
+            <li key={r.v} className="py-2.5">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] bg-foreground text-background px-1.5 py-0.5">{r.v}</span>
+                <span className="font-mono text-[9px] text-muted-foreground">{r.date}</span>
+              </div>
+              <div className="mt-1.5 leading-snug font-medium tracking-tight line-clamp-2">{r.title}</div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                {r.tags.map((t) => (
+                  <span key={t} className="text-[8.5px] uppercase tracking-wider border border-border px-1.5 py-0.5">{t}</span>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ul>
+      }
     />
 
     <Section index="01 ·" eyebrow="Latest" title="The newest release, in detail.">

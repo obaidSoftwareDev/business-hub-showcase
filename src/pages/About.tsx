@@ -4,6 +4,7 @@ import evorixWordmark from "@/assets/evorix-wordmark.webp";
 import PageHero from "@/components/site/PageHero";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
+import DashboardMock from "@/components/mock/DashboardMock";
 
 const About = () => (
   <>
@@ -11,6 +12,41 @@ const About = () => (
       eyebrow="About BusniessHub"
       title="A product built for the people who run the business."
       description="BusniessHub exists because operators deserve a single, disciplined platform — not five tools they reconcile every Sunday."
+      primaryCta={{ label: "Talk to the team", to: "/contact" }}
+      secondaryCta={{ label: "See the product", to: "/product" }}
+      visualTitle="Operating loop · today"
+      visualUrl="app.busnieshub.com"
+      visual={<DashboardMock />}
+      tone="Maker · EVORIX Systems"
+      frameCaption="Frame 08 / 12 · Workspace"
+      meta={[
+        { label: "Product", value: "BusniessHub" },
+        { label: "Maker", value: "EVORIX Systems" },
+        { label: "Focus", value: "One product" },
+      ]}
+      kpis={[
+        { k: "One product", v: "BusniessHub", sub: "No portfolio" },
+        { k: "Built by", v: "EVORIX", sub: "Small focused team" },
+        { k: "Operating principle", v: "Discipline", sub: "Over dashboards" },
+        { k: "We stay", v: "Week 1", sub: "Through every release" },
+      ]}
+      secondaryTitle="Maker"
+      secondaryUrl="evorix.systems"
+      secondaryFragment={
+        <div className="p-4 flex flex-col h-full">
+          <div className="bg-foreground p-6 flex items-center justify-center">
+            <img src={evorixWordmark} alt="EVORIX Systems" className="w-full max-w-[120px] h-auto" />
+          </div>
+          <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Builder</div>
+          <p className="mt-2 text-[11px] leading-relaxed">
+            EVORIX Systems is the team behind BusniessHub. One product. Built with discipline. Used every day.
+          </p>
+          <div className="mt-auto pt-4 border-t border-border flex items-center justify-between text-[10px] font-mono text-muted-foreground">
+            <span>Est. 2024</span>
+            <span>India</span>
+          </div>
+        </div>
+      }
     />
 
     <Section index="01 ·" eyebrow="Why BusniessHub exists" title={<>We built it because <span className="text-muted-foreground">we kept watching operators glue tools together.</span></>}

@@ -24,8 +24,48 @@ const Security = () => (
       title="Trust comes from how the system is built — not from badges on a page."
       description="Our trust story is grounded in product structure, operational transparency and disciplined workflows."
       primaryCta={{ label: "Talk to our team", to: "/contact" }}
+      secondaryCta={{ label: "Read our pillars", to: "#pillars" }}
       visualTitle="Audit log · streaming"
+      visualUrl="app.busnieshub.com/audit"
       visual={<AuditMock />}
+      tone="Trust by structure"
+      frameCaption="Frame 07 / 12 · Audit log"
+      meta={[
+        { label: "Audit", value: "always-on" },
+        { label: "Roles", value: "scoped" },
+        { label: "Workspaces", value: "separated" },
+      ]}
+      kpis={[
+        { k: "Audit coverage", v: "100%", sub: "Every operating action" },
+        { k: "Role tiers", v: "4", sub: "Owner → Viewer" },
+        { k: "Workspace bleed", v: "0", sub: "Books fully scoped" },
+        { k: "Silent disable", v: "Impossible", sub: "Audit is structural" },
+      ]}
+      secondaryTitle="Access · roles"
+      secondaryUrl="security.busnieshub.com"
+      secondaryFragment={
+        <div className="p-4">
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Roles in workspace</div>
+          <ul className="mt-3 grid grid-cols-2 gap-px bg-border border border-border">
+            {[
+              { r: "Owner", c: "Full" },
+              { r: "Admin", c: "Scoped" },
+              { r: "Operator", c: "Module" },
+              { r: "Viewer", c: "Read" },
+            ].map((x) => (
+              <li key={x.r} className="bg-background p-2.5 flex flex-col">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{x.c}</span>
+                <span className="text-sm font-medium tracking-tight mt-0.5">{x.r}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-4 pt-3 border-t border-border text-[11px]">
+            <div className="flex items-center justify-between"><span>Sessions</span><span className="font-mono">Managed</span></div>
+            <div className="flex items-center justify-between mt-1.5"><span>Revocation</span><span className="font-mono">Audited</span></div>
+            <div className="flex items-center justify-between mt-1.5"><span>Tokens</span><span className="font-mono">Workspace-scoped</span></div>
+          </div>
+        </div>
+      }
     />
 
     <Section index="01 ·" eyebrow="Pillars" title="Six pillars that hold the platform together.">
