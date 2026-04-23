@@ -41,10 +41,11 @@ const HeroSection = () => {
           src={heroBg}
           alt=""
           data-testid="img-hero-background"
-          className="w-full h-full object-cover opacity-[0.18] dark:opacity-[0.22] mask-vignette select-none pointer-events-none"
+          className="w-full h-full object-cover opacity-90 dark:opacity-70 select-none pointer-events-none"
           draggable={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/20 to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/10 to-transparent" />
       </motion.div>
       <div className="absolute inset-0 grid-bg mask-vignette opacity-50" aria-hidden />
 
@@ -380,6 +381,7 @@ const ScreenshotTheater = () => {
 
               {/* Frame column */}
               <div className="col-span-12 lg:col-span-9">
+                <Parallax amount={reduced ? 0 : 28}>
                 <motion.div
                   initial={reduced ? false : { opacity: 0, y: 32, clipPath: "inset(8% 0 8% 0)" }}
                   whileInView={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0% 0)" }}
@@ -408,6 +410,7 @@ const ScreenshotTheater = () => {
                     <span className="font-mono text-[10px]">0{i + 1} / {screens.length}</span>
                   </div>
                 </motion.div>
+                </Parallax>
               </div>
             </div>
           );

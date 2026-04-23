@@ -99,10 +99,11 @@ export const PageHero = ({
             src={bgImage}
             alt=""
             data-testid="img-page-hero-background"
-            className="w-full h-full object-cover opacity-[0.16] dark:opacity-[0.20] mask-vignette select-none"
+            className="w-full h-full object-cover opacity-90 dark:opacity-70 select-none"
             draggable={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/20 to-background/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/10 to-transparent" />
         </motion.div>
       )}
       <div className="absolute inset-0 grid-bg mask-vignette opacity-50" aria-hidden />
