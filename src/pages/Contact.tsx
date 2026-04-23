@@ -6,6 +6,7 @@ import PageHero from "@/components/site/PageHero";
 import Section from "@/components/site/Section";
 import FinalCTA from "@/components/site/FinalCTA";
 import FAQList from "@/components/site/FAQList";
+import SuppliersMock from "@/components/mock/SuppliersMock";
 
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -25,6 +26,8 @@ const Contact = () => {
         eyebrow="Contact"
         title="Talk to the team behind BusniessHub."
         description="Setup, demo, fit, support, partnerships — start a conversation and we'll route you to the right person."
+        visualTitle="Suppliers · partner ledger"
+        visual={<SuppliersMock />}
       />
 
       <Section index="01 ·" eyebrow="How to reach us" title="Choose the conversation that fits.">
