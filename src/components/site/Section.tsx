@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import sectionAmbientBg from "@assets/generated_images/section_ambient_bg.png";
 
 interface SectionProps {
   children?: ReactNode;
@@ -22,9 +23,21 @@ export const Section = ({ children, className = "", index, eyebrow, title, descr
       ? "bg-surface-1"
       : "bg-background";
   const border = variant === "ink" ? "border-foreground/10" : "border-border";
+  const showAmbient = variant === "muted" || variant === "default";
   return (
-    <section id={id} className={`relative py-24 md:py-32 border-b ${border} ${bg} ${className}`}>
-      <div className="container-edge">
+    <section id={id} className={`relative py-24 md:py-32 border-b overflow-hidden ${border} ${bg} ${className}`}>
+      {showAmbient && (
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          <img
+            src={sectionAmbientBg}
+            alt=""
+            className="w-full h-full object-cover opacity-30 select-none"
+            draggable={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/60" />
+        </div>
+      )}
+      <div className="relative container-edge">
         {(index || eyebrow || title || description) && (
           <header className="mb-16 md:mb-20 grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-4 flex items-start gap-4">

@@ -54,3 +54,9 @@ id = "MwwRoEBsHJdAEH5yAyudw"
 uri = "file://attached_assets/generated_images/footer_bg.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "3-PVAvFA2sS5n-6dkCFkf"
+uri = "file://attached_assets/generated_images/section_ambient_bg.png"
+type = "image"
+title = "generated_image"
