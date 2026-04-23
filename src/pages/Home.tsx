@@ -25,6 +25,8 @@ const HeroSection = () => {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y1 = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -120]);
   const y2 = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -60]);
+  const bgY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -100]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1.05, 1.14]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.4]);
 
   return (
@@ -32,8 +34,8 @@ const HeroSection = () => {
       <AmbientDepth intensity="med" />
       <motion.div
         aria-hidden
-        className="absolute inset-0 -z-10"
-        style={{ y: y1 }}
+        className="absolute inset-0 -z-10 will-change-transform"
+        style={{ y: bgY, scale: bgScale }}
       >
         <img
           src={heroBg}

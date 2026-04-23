@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { FadeUp, SplitWords } from "@/components/motion/SplitWords";
 import { Parallax } from "@/components/motion/Parallax";
 import AppFrame from "@/components/mock/AppFrame";
@@ -78,12 +79,22 @@ export const PageHero = ({
   tone,
   bgImage,
 }: PageHeroProps) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const bgY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -90]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1.05, 1.12]);
+
   return (
-    <section className="relative pt-32 md:pt-40 pb-0 border-b border-border overflow-hidden">
+    <section ref={sectionRef} className="relative pt-32 md:pt-40 pb-0 border-b border-border overflow-hidden">
       {/* Layered backdrop */}
       <AmbientDepth intensity="low" />
       {bgImage && (
-        <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden>
+        <motion.div
+          className="absolute inset-0 -z-10 pointer-events-none will-change-transform"
+          style={{ y: bgY, scale: bgScale }}
+          aria-hidden
+        >
           <img
             src={bgImage}
             alt=""
@@ -92,7 +103,7 @@ export const PageHero = ({
             draggable={false}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
-        </div>
+        </motion.div>
       )}
       <div className="absolute inset-0 grid-bg mask-vignette opacity-50" aria-hidden />
       <div className="absolute inset-0 scan-lines opacity-70 pointer-events-none" aria-hidden />
