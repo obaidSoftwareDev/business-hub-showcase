@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 interface SectionProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   index?: string;
   eyebrow?: string;
