@@ -131,6 +131,8 @@ const ModulesPage = () => {
         description="Each module is built to earn its place in your daily workflow."
         primaryCta={{ label: "See pricing", to: "/pricing" }}
         secondaryCta={{ label: "Open Workspace", to: "/app" }}
+        visualTitle="Products · 2,184 SKUs"
+        visual={<ProductsMock />}
       />
 
       {modules.map((m, idx) => (

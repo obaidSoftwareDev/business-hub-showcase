@@ -76,6 +76,19 @@ const Product = () => {
         description="From product master to reporting and audit, BusniessHub is the full operating surface your business runs on."
         primaryCta={{ label: "Open Workspace", to: "/app" }}
         secondaryCta={{ label: "See pricing", to: "/pricing" }}
+        visualTitle="Dashboard · Acme Retail"
+        visual={<DashboardMock />}
+        sidePanel={
+          <div className="p-3">
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Stock alert</div>
+            <div className="text-sm font-medium tracking-tight mt-1">3 SKUs below threshold</div>
+            <ul className="mt-2 divide-y divide-border text-[10.5px]">
+              <li className="flex items-center justify-between py-1.5"><span>SKU-10422 · Mustard Oil</span><span className="font-mono">12</span></li>
+              <li className="flex items-center justify-between py-1.5"><span>SKU-10423 · Cooker 5L</span><span className="font-mono">4</span></li>
+              <li className="flex items-center justify-between py-1.5"><span>SKU-10428 · Towel C</span><span className="font-mono">6</span></li>
+            </ul>
+          </div>
+        }
       />
 
       {/* Architecture */}
