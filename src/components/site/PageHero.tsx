@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { FadeUp, SplitWords } from "@/components/motion/SplitWords";
 import { Parallax } from "@/components/motion/Parallax";
 import AppFrame from "@/components/mock/AppFrame";
+import Tilt3D from "@/components/motion/Tilt3D";
+import MagneticLink from "@/components/motion/MagneticLink";
 import AmbientDepth from "@/components/motion/AmbientDepth";
 
 export interface HeroKpi {
@@ -128,13 +130,15 @@ export const PageHero = ({
               {(primaryCta || secondaryCta) && (
                 <div className="mt-6 flex items-center gap-3">
                   {primaryCta && (
-                    <Link
-                      to={primaryCta.to}
-                      className="btn-sheen inline-flex items-center gap-1.5 bg-foreground text-background text-sm px-4 py-2.5 rounded-sm"
-                    >
-                      {primaryCta.label}
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </Link>
+                    <MagneticLink strength={5}>
+                      <Link
+                        to={primaryCta.to}
+                        className="btn-sheen group/cta inline-flex items-center gap-1.5 bg-foreground text-background text-sm px-4 py-2.5 rounded-sm"
+                      >
+                        {primaryCta.label}
+                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 ease-out-expo group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
+                      </Link>
+                    </MagneticLink>
                   )}
                   {secondaryCta && (
                     <Link
@@ -196,24 +200,26 @@ export const PageHero = ({
               {/* Main frame */}
               <div className={`col-span-12 ${secondaryFragment ? "lg:col-span-9" : "lg:col-span-12"}`}>
                 <Parallax amount={20}>
-                  <motion.div
-                    className="relative frame-lift"
-                    initial={{ opacity: 0, clipPath: "inset(8% 4% 8% 4%)" }}
-                    whileInView={{ opacity: 1, clipPath: "inset(0% 0% 0% 0%)" }}
-                    viewport={{ once: true, margin: "-10%" }}
-                    transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    <AppFrame title={visualTitle} url={visualUrl} className="shadow-pop">
-                      {visual}
-                    </AppFrame>
-                    {sidePanel && (
-                      <div className="hidden md:block absolute -right-4 -bottom-10 w-72 lg:w-80 z-10">
-                        <AppFrame title="Quick view" url="quick.busnieshub.com" className="shadow-pop">
-                          {sidePanel}
-                        </AppFrame>
-                      </div>
-                    )}
-                  </motion.div>
+                  <Tilt3D max={3.5} lift={4}>
+                    <motion.div
+                      className="relative frame-lift depth-shadow"
+                      initial={{ opacity: 0, clipPath: "inset(8% 4% 8% 4%)" }}
+                      whileInView={{ opacity: 1, clipPath: "inset(0% 0% 0% 0%)" }}
+                      viewport={{ once: true, margin: "-10%" }}
+                      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <AppFrame title={visualTitle} url={visualUrl} className="shadow-pop">
+                        {visual}
+                      </AppFrame>
+                      {sidePanel && (
+                        <div className="hidden md:block absolute -right-4 -bottom-10 w-72 lg:w-80 z-10" style={{ transform: "translateZ(40px)" }}>
+                          <AppFrame title="Quick view" url="quick.busnieshub.com" className="shadow-pop">
+                            {sidePanel}
+                          </AppFrame>
+                        </div>
+                      )}
+                    </motion.div>
+                  </Tilt3D>
                 </Parallax>
               </div>
 

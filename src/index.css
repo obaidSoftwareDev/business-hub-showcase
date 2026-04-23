@@ -395,12 +395,57 @@
     box-shadow: var(--shadow-pop);
   }
 
+  /* Multi-layer depth shadow used under hero AppFrame for premium float */
+  .depth-shadow {
+    position: relative;
+  }
+  .depth-shadow::before {
+    content: "";
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: -28px;
+    height: 56px;
+    background: radial-gradient(60% 100% at 50% 0%,
+      hsl(0 0% 0% / 0.18) 0%,
+      hsl(0 0% 0% / 0.06) 45%,
+      transparent 75%);
+    filter: blur(14px);
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 700ms var(--ease-out-expo), transform 700ms var(--ease-out-expo);
+    opacity: 0.85;
+  }
+  .depth-shadow:hover::before {
+    opacity: 1;
+    transform: translateY(4px) scaleX(1.02);
+  }
+
+  /* Universal lift card — small hover elevation for editorial cards */
+  .lift-card {
+    transition: transform 500ms var(--ease-out-expo), box-shadow 500ms var(--ease-out-expo), border-color 500ms var(--ease-out-expo);
+    will-change: transform;
+  }
+  .lift-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Section stitch label vertical rhythm helper */
+  .stitch-spacer { @apply py-12 md:py-16; }
+
   @media (prefers-reduced-motion: reduce) {
     .caret-blink, .status-pulse, .badge-pulse,
     .shimmer::after, .row-sweep::after,
     .marquee-track, .draw-line {
       animation: none !important;
     }
+    .depth-shadow::before { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    /* Calmer motion budget on mobile */
+    .depth-shadow::before { opacity: 0.5; }
   }
 }
 

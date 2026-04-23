@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import MagneticLink from "@/components/motion/MagneticLink";
 
 const primaryNav = [
   { to: "/", label: "BusniessHub" },
@@ -141,14 +142,16 @@ export const SiteHeader = () => {
           >
             Sign in
           </Link>
-          <Link
-            to="/app"
-            className="btn-sheen group hidden sm:inline-flex items-center gap-1.5 bg-foreground text-background text-[12.5px] sm:text-[13px] font-medium px-3 sm:px-3.5 py-2 rounded-sm hover:opacity-95 transition-opacity"
-            data-testid="button-open-workspace"
-          >
-            <span className="hidden sm:inline">Open Workspace</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          <MagneticLink strength={4} className="hidden sm:inline-block">
+            <Link
+              to="/app"
+              className="btn-sheen group inline-flex items-center gap-1.5 bg-foreground text-background text-[12.5px] sm:text-[13px] font-medium px-3 sm:px-3.5 py-2 rounded-sm hover:opacity-95 transition-opacity"
+              data-testid="button-open-workspace"
+            >
+              <span className="hidden sm:inline">Open Workspace</span>
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </MagneticLink>
 
           <button
             className="lg:hidden inline-flex items-center justify-center w-9 h-9 border border-border rounded-sm hover:bg-foreground/5 transition-colors"
